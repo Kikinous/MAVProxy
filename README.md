@@ -20,7 +20,7 @@ For now, it is working with droneapi code located in the mission folder:
 - mav0sync.py : leader plane sents its location while it is performing a mission
 - mav1sync.py : follower plane gets levelled with the leader plane
 - Aide_memoire.md : some notes written in french
-
+![alt tag](https://raw.githubusercontent.com/Kikinous/MAVProxy/installation/missions/formation.png)
 
 License
 -------

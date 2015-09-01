@@ -4,10 +4,12 @@ case $1 in
     -s|--sitl)
         case  $2 in
             mav0)
-                mavproxy.py --master=127.0.0.1:14550 --out=udp:127.0.0.1:14551 --console --load-module=droneapi.module.api --aircraft=avionSITL
+                echo "mavproxy.py --master=127.0.0.1:14550 --out=udp:127.0.0.1:14551 --console --load-module=droneapi.module.api --aircraft=SITLmav0"
+                mavproxy.py --master=127.0.0.1:14550 --out=udp:127.0.0.1:14551 --console --load-module=droneapi.module.api --aircraft=SITLmav0
                 ;;
             mav1)
-                mavproxy.py --master=127.0.0.1:14560 --out=udp:127.0.0.1:14561 --console --load-module=droneapi.module.api --aircraft=avionSITL
+                echo "mavproxy.py --master=127.0.0.1:14560 --out=udp:127.0.0.1:14561 --console --load-module=droneapi.module.api --aircraft=SITLmav1"
+                mavproxy.py --master=127.0.0.1:14560 --out=udp:127.0.0.1:14561 --console --load-module=droneapi.module.api --aircraft=SITLmav1
                 ;;
             *)
                 echo "mav0 ou mav1"

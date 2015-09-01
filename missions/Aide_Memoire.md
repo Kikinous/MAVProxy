@@ -1,11 +1,10 @@
 SIMULATION
 ==========
 
-osx$ vagrant ssh
-vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ screen -d -R
-vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ screen -d -R -t ecran0
-vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ sim_vehicle.sh -v ArduPlane
-
+osx:ardupilot/$ vagrant up
+osx:ardupilot/$ vagrant ssh     ~~ run /Tools/vagrant/shellinit.sh ~~
+vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ screen -t simul0 
+vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ sim_vehicle.sh -L CAAP64 -v ArduPlane
 
 Notes :
 - Toujours lancer sim_vehicules.sh depuis ArduPlane/ pour convercer les parametres sauvegardes 
@@ -19,49 +18,37 @@ Notes :
     ctrl-a [      : enter copy mode (to scroll upward)
     ctrl-a c      : create
 
-Simulation d'une deuxieme instance
-----------------------------------
-vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ sim_vehicle.sh -I 1 -v ArduPlane
-
-
-
+Simulation d'un deuxieme avion
+------------------------------
+vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ screen -t simul1 
+vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ sim_vehicle.sh -I 1 -L CAAP64 -v ArduPlane
 
 Mavproxy dans OS-X
 ------------------
-osx$ mavproxy.py --master=127.0.0.1:14550 --out=udp:127.0.0.1:14551
-MAV> param load /Users/julienborghetti/Documents/Code/github/ardupilot/Tools/autotest/ArduPlane.parm
-MAV> wp load /Users/julienborghetti/Documents/Code/github/ardupilot/Tools/autotest/ArduPlane-Missions/CMAC-toff-loop.txt
-MAV> wp load /Users/julienborghetti/Documents/Code/github/sitl_session/missionCAAP54.txt
-MAV> wp list
-MAV> wp loop
-MAV> wp list
-
+osx:Code/MAVProxy/missions/$ ./start_mavproxy.sh -s mav0
+MAV> param load ArduPlane.parm  // sauves dans eeprom.bin quand stil fini
+MAV> param set SYSID_THISMAV 1
+MAV> wp load tkoff
 MAV> arm throttle
 MAV> mode auto
-
 
 Notes :
 - MAV> param set TRIM_ARSPD_CM 2200     //
   MAV> guided 43.102 -0.162 100         //Saint pe de bigorre
-  MAV> guided 43.232 -0.162 100         //CAAP64
   MAV> mode guided                      //
   MAV> link list                        //
   MAV> output                           //
-
-
-APM Planner dans OS-X
----------------------
-Creer un lien sur 127.0.0.1:14551
-
+  MAV> param set SYSID_THISMAV 1        //
+  MAV> param show SYSID_THISMAV         //
+- pour atterrir
+  MAV> 
 
 VRAC : COMMANDES UTILISEES
 ==========================
-## Commandes dans mavproxy :
-output : pour voir si mavproxy redirige bien les packets
 
 ## Nouvelle mission
 1. Ajout de *CAAP64* dans locations.txt
-   * format de locations.txt 
+   * format de Tools/autotest/locations.txt  (dans github/ardupilot/ ou /vagrant/ : ce sont les memes)
        `vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ ./ArduPlane.elf  --help`
        >Options:
        >    --home HOME        set home location (lat,lng,alt,yaw)

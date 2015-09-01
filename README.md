@@ -9,7 +9,7 @@ entry
 
 Fork by Kikinous
 ----------------
-### check out the [installation branch](https://github.com/Kikinous/MAVProxy/blob/installation/README.md), which is up to date on Sept 2015:
+** The [installation branch](https://github.com/Kikinous/MAVProxy/blob/installation/README.md) is up to date on Sept 2015 **
 
 My goal is to get a few planes flying in formation.
 It is assumed to fly in CAAP64 nearby Pau, France.

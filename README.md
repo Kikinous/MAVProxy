@@ -9,6 +9,8 @@ entry
 
 Fork by Kikinous
 ----------------
+# check out the [installation branch](https://github.com/Kikinous/MAVProxy/blob/installation/README.md), which is up to date on Sept 2015:
+
 My goal is to get a few planes flying in formation.
 It is assumed to fly in CAAP64 nearby Pau, France.
 
@@ -21,7 +23,7 @@ For now, it is working with droneapi code located in the mission folder:
 - mav1sync.py : follower plane gets levelled with the leader plane
 - Aide_memoire.md : some notes written in french
 ![alt tag](https://raw.githubusercontent.com/Kikinous/MAVProxy/installation/missions/formation.png)
-- check out the [installation branch](https://github.com/Kikinous/MAVProxy/blob/installation/README.md), which is up to date on Sept 2015:
+
 
 License
 -------

@@ -69,6 +69,21 @@ VRAC : COMMANDES UTILISEES
        vi /Users/julienborghetti/Documents/Code/github/ardupilot/Tools/autotest/locations.txt
 
 2. Demmarrage de sim
-   `vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ sim_vehicle.sh -v ArduPlane -L CAAP64``
+   `vagrant@vagrant-ubuntu-trusty-32:/vagrant/ArduPlane$ sim_vehicle.sh -v ArduPlane -L CAAP64`
+
+3. Sequence d'atterrissage depuis l'ouest 
+fichier : land_W2E.txt
+3	0	3	16	0	0	0	0	43.2335413452921458	-0.111880302429199219	50	1
+4	0	3	16	0	0	0	0	43.2319232702038576	-0.111150741577148438	50	1
+5	0	3	21	0	0	0	0	43.233304890139479	-0.105078220367431641	0	0
+Pour le rascal :
+- LAND_FLARE_ALT    = 3
+- LAND_FLARE_SEC    = 0       ~~ 5 par default ~~
+- LAND_PITCH_CD     = 100
+- TECS_LAND_ARSPD   = 10      ~~ -1 par default ~~
+- TECS_LAND_SPDWGT  = 1
+
+- RNGFND_LANDING    = 0
+- RTL_AUTOLAND      = 0 
 
    
